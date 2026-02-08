@@ -4,25 +4,34 @@ const InteractiveCards = ({ onReasonsClick, onSurpriseClick }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showAudioPlayer, setShowAudioPlayer] = useState(false);
 
-  const handleMusicClick = () => {
-    setShowAudioPlayer(true);
+const handleMusicClick = () => {
+  setShowAudioPlayer(true);
+  
+  // Use a slight delay to ensure the audio element is rendered
+  setTimeout(() => {
     const audioPlayer = document.getElementById('song-player');
     if (audioPlayer) {
       if (isPlaying) {
         audioPlayer.pause();
         setIsPlaying(false);
       } else {
+        // Reset the audio to beginning if ended
+        audioPlayer.currentTime = 0;
+        
         const playPromise = audioPlayer.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
             setIsPlaying(true);
           }).catch(error => {
-            alert("Click the play button in the audio player to listen to 'Beanie' by Chezile");
+            console.log("Autoplay prevented:", error);
+            // Show custom play button instead of alert
+            // or let the user click the native audio controls
           });
         }
       }
     }
-  };
+  }, 100);
+};
 
   return (
     <div className="interactive-section">
@@ -47,19 +56,20 @@ const InteractiveCards = ({ onReasonsClick, onSurpriseClick }) => {
         <button className="button" onClick={handleMusicClick}>
           {isPlaying ? 'Pause Our Song' : 'Play Our Song'}
         </button>
-        <audio 
-          id="song-player" 
-          controls 
-          style={{ 
-            display: showAudioPlayer ? 'block' : 'none', 
-            width: '100%', 
-            marginTop: '20px' 
-          }}
-          onEnded={() => setIsPlaying(false)}
-        >
-          <source src="audio/Chezile.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+    <audio 
+  id="song-player" 
+  controls 
+  style={{ 
+    width: '100%', 
+    marginTop: '20px' 
+  }}
+  onPlay={() => setIsPlaying(true)}
+  onPause={() => setIsPlaying(false)}
+  onEnded={() => setIsPlaying(false)}
+>
+  <source src="/audio/Chezile.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
       </div>
     </div>
   );
