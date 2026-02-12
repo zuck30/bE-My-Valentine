@@ -5,7 +5,7 @@ const MessageSection = () => {
     <section id="message" className="section">
       <div className="message-container">
         <p className="message">
-          My dearest Shekha, from the moment I met you, I knew my heart had found its home. 
+          My dearest Baby, from the moment I met you, I knew my heart had found its home. 
           This Valentine's Day, I want to remind you how incredibly special you are to me and 
           how grateful I am for every moment we share together.
         </p>
@@ -13,7 +13,7 @@ const MessageSection = () => {
           You are the most beautiful person I know, inside and out. Your kindness, your laughter, your strength, and your love light up my world in ways I never thought possible.
         </p>
         <div className="proposal-link">
-          <p>Remember when I asked you to be mine forever? <a href="https://from-ken-to-shekha.netlify.app/" target="_blank" rel="noopener noreferrer">Relive our proposal story here</a></p>
+          <p>Remember when I asked you to be mine forever? <a href="https://from-ken-to-Baby.netlify.app/" target="_blank" rel="noopener noreferrer">Relive our proposal story here</a></p>
         </div>
       </div>
     </section>
