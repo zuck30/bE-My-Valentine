@@ -12,7 +12,7 @@ const Hero = () => {
     <header className="hero">
       <div className="container hero-content">
         <span className="big-heart">❤️</span>
-        <h1>Happy Valentine's Day, <span className="highlight">Shekha</span></h1>
+        <h1>Happy Valentine's Day, <span className="highlight">Baby</span></h1>
         <p className="subtitle">Every day with you feels like Valentine's Day, my love</p>
         <button className="button" onClick={scrollToMessage}>
           Begin Our Love Journey
