@@ -78,6 +78,7 @@ cd bE-MV
 
 # Install dependencies
 npm install
+npm install gh-pages --save-dev     
 
 # Start development server
 npm start
